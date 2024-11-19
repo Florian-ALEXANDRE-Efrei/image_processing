@@ -2,6 +2,13 @@
 name = "image_processing"
 version = "0.1.0"
 edition = "2021"
+authors = ["Florian <florian.alexandre@efrei.net>"]
+description = "This package provides tools for image processing with a focus on edge detection and morphological transformations"
+readme = "README.md"
+repository = "https://github.com/Florian-ALEXANDRE-Efrei/image_processing.git"
+license = "MIT OR Apache-2.0"
+categories = ["mathematics"]
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

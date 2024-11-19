@@ -325,11 +325,11 @@ Le choix du gabarit est crucial :
   ```
 
  ```math
-  G_y = 1/4
+  E =
   \begin{bmatrix}
-  -1 & -2 & -1 \\
-  0 &  0 &  0 \\
-  1 &  2 &  1
+  0 & 1 & 0 \\
+  1 & 1 & 1 \\
+  0 & 1 & 0
   \end{bmatrix}
   ```
   

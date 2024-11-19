@@ -4,17 +4,15 @@
 
 Un projet Rust pour appliquer plusieurs types de filtres d'image, notamment des filtres de détection de contours et des transformations morphologiques.
 
-## **Caractéristiques**
-
 ---
+## **Caractéristiques**
 
 - **Détection de contours** : Kirsch, Sobel, Robinson, Prewitt.
 - **Opérateurs morphologiques** : Dilatation et érosion.
 - **Outils généraux** : Inversion des couleurs, seuillage classique, etc.
 
-## **Structure du projet**
-
 ---
+## **Structure du projet**
 
 ```bash
 image_processing/
@@ -31,9 +29,8 @@ image_processing/
 └── Cargo.toml           # Configuration du projet
 ```
 
-## **Installation**
-
 ---
+## **Installation**
 
 ### Prérequis
 1. [Rust](https://www.rust-lang.org/tools/install) (version stable recommandée).
@@ -54,9 +51,8 @@ image_processing/
    cargo build --release
    ```
 
-## **Utilisation**
-
 ---
+## **Utilisation**
 
 1. Ajoutez vos images sources dans le dossier `images_sources/`.
 2. Exécutez le programme en ligne de commande :
@@ -81,22 +77,20 @@ image_processing/
    }
    ```
 
+---
 ## **Exemples de filtres appliqués**
 
+| Filtre           | Image Originale            | Image Résultante          |
+|------------------|----------------------------|----------------------------|
+| **Prewitt**      | ![Input](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_src/Bureau.png) | ![Output](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_prewitt.png) |
+| **Thresholding** | ![Input](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_prewitt.png) | ![Output](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_thresholding.png) | 
+| **Dilatation**   | ![Input](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_thresholding.png) | ![Output](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_dilatee.png) |
+
 ---
-
-| Filtre            | Image Originale            | Image Résultante          |
-|--------------------|----------------------------|----------------------------|
-| **Sobel**         | ![Input](images_sources/input.png) | ![Output](images_resultat/sobel.png) |
-| **Kirsch**        | ![Input](images_sources/input.png) | ![Output](images_resultat/kirsch.png) |
-| **Dilatation**    | ![Input](images_sources/input.png) | ![Output](images_resultat/dilatation.png) |
-
-
 ## **Détails techniques des filtres et transformations**
 
 ### **1. Filtres de détection de contours**
 
----
 > ## Précisions requises
 > Ces filtres utilisent des **masques de convolution**, qui sont appliqués sur chaque pixel d'une image pour détecter les variations d'intensité dans une direction particulière. Cela permet de détecter les contours. A chaque masque de convolution est appliqué un **facteur de normalisation** Ce facteur est calculé pour correspond à la somme des coefficients positifs ou négatifs du masque.
 
@@ -234,8 +228,6 @@ image_processing/
 
 ### **2. Transformations morphologiques**
 
----
-
 Les transformations morphologiques comme la **dilatation** et l’**érosion** sont utilisées pour modifier la structure des objets dans une image binaire. Dans le contexte du projet, les pixels noires correspondent à des pixels objets et les pixels blancs à des pixels fond.
 
 Pour la dailatation ou l'érosion, le principe est le même, nous utilisont un élément structurant/gabarit qui va permettre d'effectuer des opérations sur le pixel courant en fonction de ses pixels voisins. 
@@ -300,25 +292,22 @@ Le choix du gabarit est crucial :
   0 & 1 & 0
   \end{bmatrix}
   ```
-
-## **Contribuer**
-
+  
 ---
+## **Contribuer**
 
 Les contributions sont les bienvenues ! Voici comment vous pouvez aider :
 1. **Signalez des problèmes** : Utilisez l'onglet "Issues" de GitHub.
 2. **Améliorez le code** : Clonez ce dépôt, faites vos modifications, et soumettez une pull request.
 3. **Ajoutez des fonctionnalités** : Par exemple, d'autres filtres ou améliorations de performance.
 
-## **Licence**
-
 ---
+## **Licence**
 
 Ce projet est sous licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus d'informations.
 
-### Notes supplémentaires
-
 ---
+### Notes supplémentaires
 
 Ce projet est basé sur les cours de Mr.Patrick J Bonnin.
 
@@ -326,6 +315,5 @@ Ce projet est basé sur les cours de Mr.Patrick J Bonnin.
 - Ce projet est conçu pour les personnes souhaitant explorer le traitement d'images en Rust et peut servir de base à des projets plus complexes.
 
 ---
-
 ### Exemple final
 - Ajoutez votre propre description ou personnalisez selon votre style ! 😊

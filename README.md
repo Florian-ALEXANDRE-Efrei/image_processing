@@ -17,16 +17,16 @@ Un projet Rust pour appliquer plusieurs types de filtres d'image, notamment des 
 ```bash
 image_processing/
 ├── src/
-│   ├── main.rs           # Point d'entrée principal
-│   ├── filters/          # Contient les filtres
-│   │   ├── edge_detection.rs  # Détection de contours (Kirsch, Sobel, etc.)
-│   │   └── morphological.rs  # Opérateurs morphologiques (dilatation, érosion)
+│   ├── main.rs                 # Point d'entrée principal
+│   ├── filters/                # Contient les filtres
+│   │   ├── edge_detection.rs   # Détection de contours (Kirsch, Sobel, etc.)
+│   │   └── morphological.rs    # Opérateurs morphologiques (dilatation, érosion)
 │   ├── utils/
-│   │   └── image_utils.rs    # Fonctions utilitaires (chargement d'images_src, etc.)
-│   └── lib.rs           # Déclaration des modules
-├── images_src/     # Images d'entrée
-├── images_res/     # Images générées après traitement
-└── Cargo.toml           # Configuration du projet
+│   │   └── image_utils.rs      # Fonctions utilitaires (chargement d'images_src, etc.)
+│   └── lib.rs                  # Déclaration des modules
+├── images_src/                 # Images d'entrée
+├── images_res/                 # Images générées après traitement
+└── Cargo.toml                  # Configuration du projet
 ```
 
 
@@ -321,6 +321,15 @@ Le choix du gabarit est crucial :
   0 & 1 & 0 \\
   1 & 1 & 1 \\
   0 & 1 & 0
+  \end{bmatrix}
+  ```
+
+ ```math
+  G_y = 1/4
+  \begin{bmatrix}
+  -1 & -2 & -1 \\
+  0 &  0 &  0 \\
+  1 &  2 &  1
   \end{bmatrix}
   ```
   

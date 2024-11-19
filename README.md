@@ -120,7 +120,7 @@ image_processing/
 
 #### **b) Filtre de Sobel**
 - **Masques de convolution** :
-  $$
+  ```math
   G_x = 1/4
   \begin{bmatrix}
   -1 & 0 & 1 \\
@@ -134,12 +134,12 @@ image_processing/
   0 &  0 &  0 \\
   1 &  2 &  1
   \end{bmatrix}
-  $$
+  ```
 
 
 #### **c) Filtre de Kirsch**
 - **Masques de convolution**
-  $$
+  ```math
   G_x = 1/15
   \begin{bmatrix}
   -3 & -3 &  5 \\
@@ -167,11 +167,11 @@ image_processing/
   -3 &  0 & -3 \\
   5 & 5 & 5
   \end{bmatrix}
-  $$
+  ```
 
 #### **d) Filtre de Robinson**
 - **Masques de convolution** :
-  $$
+  ```math
   G_{E} = 1/5
   \begin{bmatrix}
   -1 &  1 & 1 \\
@@ -199,8 +199,8 @@ image_processing/
   1 &  -2 & -1 \\
   1 & -1 & -1
   \end{bmatrix}
-  $$
-  $$
+  ```
+  ```math
   G_{O} = 1/5
   \begin{bmatrix}
   1 &  1 & -1 \\
@@ -228,7 +228,7 @@ image_processing/
   -1 &  -2 & 1 \\
   1  & 1 & 1
   \end{bmatrix}
-  $$
+  ```
 
 ### **2. Transformations morphologiques**
 
@@ -281,23 +281,23 @@ L'élément structurant/gabarit est une petite matrice (ou motif) utilisée pour
 #### **c) Gabarit (élément structurant)**
 Le choix du gabarit est crucial :
 - **Carré \(3 \times 3\)** : Gabarit classique.
-  $$
+  ```math
   E =
   \begin{bmatrix}
   1 & 1 & 1 \\
   1 & 1 & 1 \\
   1 & 1 & 1
   \end{bmatrix}
-  $$
+  ```
 - **Croix \(3 \times 3\)** : Évite les coins.
-  $$
+  ```math
   E =
   \begin{bmatrix}
   0 & 1 & 0 \\
   1 & 1 & 1 \\
   0 & 1 & 0
   \end{bmatrix}
-  $$
+  ```
 
 ## **Contribuer**
 

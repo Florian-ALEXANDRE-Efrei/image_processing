@@ -44,13 +44,13 @@ pub fn kirsch(mut img: DynamicImage) -> DynamicImage {
          [-3,  0,  5],
          [-3, -3, -3]],    // Diagonale 45°
 
-        [[ 5,  5,  5],
+        [[-3, -3, -3],
          [-3,  0, -3],
-         [-3, -3, -3]],    // Vertical
+         [ 5,  5,  5]],    // Vertical
 
-        [[ 5,  5, -3],
-         [ 5,  0, -3],
-         [-3, -3, -3]],    // Diagonale -45°
+        [[-3, -3, -3],
+         [-3,  0,  5],
+         [-3,  5,  5]],    // Diagonale -45°
     ];
 
     for y in 1..height - 1 {
@@ -84,9 +84,9 @@ pub fn sobel(mut img: DynamicImage) -> DynamicImage {
          [-2, 0, 2], 
          [-1, 0, 1]],  // Horizontal
         
-        [[ 1,  2,  1], 
+        [[-1, -2, -1],
          [ 0,  0,  0], 
-         [-1, -2, -1]],  // Vertical
+         [ 1,  2,  1]],  // Vertical
     ];
 
     for y in 1..height - 1 {
@@ -119,9 +119,9 @@ pub fn prewitt(mut img: DynamicImage) -> DynamicImage {
          [-1, 0, 1],
          [-1, 0, 1]],  // Horizontal
         
-        [[ 1,  1,  1],
+        [[-1, -1, -1],
          [ 0,  0,  0],
-         [-1, -1, -1]],  // Vertical
+         [ 1,  1,  1]],  // Vertical
     ];
 
     for y in 1..height - 1 {
@@ -152,7 +152,7 @@ pub fn robinson(mut img: DynamicImage) -> DynamicImage {
     let masks = vec![
         [[ 1,   1,  1], 
          [ 1,  -2,  1], 
-         [-1,  -1, -1]],    // NO
+         [-1,  -1, -1]],    // N
 
         [[ 1,  1,  1], 
          [-1, -2,  1], 

@@ -1,5 +1,5 @@
 use image::{DynamicImage, ImageBuffer, GenericImageView};
-use crate::tools::{WHITEPIXEL, BLACKPIXEL};
+use crate::utils::image_utils;
 
 #[allow(dead_code)]
 pub fn erosion<T: std::cmp::PartialEq<image::Rgba<u8>>, const M: usize, const N: usize>(gabarit: &[[T; N]; M], img : DynamicImage) -> DynamicImage
@@ -27,7 +27,7 @@ pub fn erosion<T: std::cmp::PartialEq<image::Rgba<u8>>, const M: usize, const N:
                     let pixel = img.get_pixel(nx, ny);
 
                     // tous les pixels objets du gabarit doivent treouver leurs équivalent dans les pixels voisins du pixel courant.
-                    if pixel == WHITEPIXEL && gabarit[ky as usize][kx as usize] == BLACKPIXEL
+                    if pixel == image_utils::WHITEPIXEL && gabarit[ky as usize][kx as usize] == image_utils::BLACKPIXEL
                     {
                         match_gabarit = false;
                         break;
@@ -37,10 +37,10 @@ pub fn erosion<T: std::cmp::PartialEq<image::Rgba<u8>>, const M: usize, const N:
             // Application du pixel érodé
             if match_gabarit // tous les pixels objets du gabarit ont trouvé leurs équivalent.
             {
-                img_erodee.put_pixel(x, y, BLACKPIXEL);
+                img_erodee.put_pixel(x, y, image_utils::BLACKPIXEL);
             } else // au moins un pixel objet du gabarit n'a pas trouvé d'équivalent.
             {
-                img_erodee.put_pixel(x, y, WHITEPIXEL);
+                img_erodee.put_pixel(x, y, image_utils::WHITEPIXEL);
             }
         }
     }
@@ -74,7 +74,7 @@ pub fn dilatation<T: std::cmp::PartialEq<image::Rgba<u8>>, const M: usize, const
                     let pixel = img.get_pixel(nx, ny);
 
                     // Si au moins un pixel objet du gabarit correspond à un pixel objet du pixel courant et de son voisinage alors, le pixel central devient un pixel objet.
-                    if pixel == BLACKPIXEL && gabarit[ky as usize][kx as usize] == BLACKPIXEL
+                    if pixel == image_utils::BLACKPIXEL && gabarit[ky as usize][kx as usize] == image_utils::BLACKPIXEL
                     {
                         match_gabarit = true;
                         break;
@@ -84,10 +84,10 @@ pub fn dilatation<T: std::cmp::PartialEq<image::Rgba<u8>>, const M: usize, const
             // Application du pixel érodé
             if match_gabarit // au moins un pixel objet du gabarit à trouvé son équivalent
             {
-                img_dilatee.put_pixel(x, y, BLACKPIXEL);
+                img_dilatee.put_pixel(x, y, image_utils::BLACKPIXEL);
             } else // aucun pixel objet du gabarit n'a trouvé d'équivalent
             {
-                img_dilatee.put_pixel(x, y, WHITEPIXEL);
+                img_dilatee.put_pixel(x, y, image_utils::WHITEPIXEL);
             }
         }
     }

@@ -4,6 +4,7 @@
 
 Un projet Rust pour appliquer plusieurs types de filtres d'image, notamment des filtres de détection de contours et des transformations morphologiques.
 
+Ce projet est basé sur les cours de Mr.Patrick J Bonnin, enseignat à l'Efrei Paris pour les cours de "Vision robotique et analyse" et "Vision et Perception de l'Environnement"
 
 ## **Caractéristiques**
 
@@ -335,8 +336,8 @@ Les contributions sont les bienvenues ! Voici comment vous pouvez aider :
 
 Ce projet est sous licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus d'informations.
 
-### Notes supplémentaires
+## Notes supplémentaires
 
-- Ce projet est basé sur les cours de Mr.Patrick J Bonnin, enseignat à l'Efrei Paris pour les cours de "Vision robotique et analyse" et "Vision et Perception de l'Environnement"
-- Si vous avez des questions ou des problèmes, n'hésitez pas à ouvrir une issue ou à me contacter directement.
-- Ce projet est conçu pour les personnes souhaitant explorer le traitement d'images en Rust et peut servir de base à des projets plus complexes.
+Si vous avez des questions ou des problèmes, n'hésitez pas à ouvrir une issue ou à me contacter directement.
+
+Ce projet est conçu pour les personnes souhaitant explorer le traitement d'images en Rust et peut servir de base à des projets plus complexes.

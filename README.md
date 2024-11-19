@@ -64,24 +64,11 @@ image_processing/
     - Les images résultantes seront sauvegardées dans `images_resultat/`.
 
 3. Modifiez le fichier `main.rs` pour expérimenter différents filtres ou traitements :
-   Exemple :
-   ```rust
-   use image_processing::filters::edge_detection::sobel;
-   use image_processing::utils::image_utils::{get_image, save_image};
-
-   fn main() {
-       let image = get_image("images_sources/input.png");
-       let processed_image = sobel(&image);
-       save_image("images_resultat/output.png", &processed_image);
-       println!("Filtre Sobel appliqué !");
-   }
-   ```
-
 
 ## **Exemples de filtres appliqués**
 
 | Filtre           | Image Originale            | Image Résultante          |
-||-|-|
+|--------------------|----------------------------|----------------------------|
 | **Prewitt**      | ![Input](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_src/Bureau.png) | ![Output](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_prewitt.png) |
 | **Thresholding** | ![Input](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_prewitt.png) | ![Output](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_thresholding.png) | 
 | **Dilatation**   | ![Input](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_thresholding.png) | ![Output](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_dilatee.png) |
@@ -112,7 +99,14 @@ image_processing/
   1 &  1 &  1
   \end{bmatrix}
   ```
+- **Utilisation**
+```rust
+// main.rs
+let img = image_utils::get_image("images_src/Bureau.png"); // Ouverture de l'image
 
+let img_prewitt = edge_detection::prewitt(img.clone()); // Application du filtre de Prewitt
+img_prewitt.save("images_res/bureau_prewitt.png").expect("Failed to save image"); // Enregistrement de l'image résultante
+```
 #### **b) Filtre de Sobel**
 - **Masques de convolution** :
   ```math
@@ -131,6 +125,14 @@ image_processing/
   \end{bmatrix}
   ```
 
+- **Utilisation**
+```rust
+// main.rs
+let img = image_utils::get_image("images_src/Bureau.png"); // Ouverture de l'image
+
+let img_sobel = edge_detection::sobel(img.clone()); // Application du filtre de Sobel
+img_sobel.save("images_res/bureau_sobel.png").expect("Failed to save image"); // Enregistrement de l'image résultante
+```
 
 #### **c) Filtre de Kirsch**
 - **Masques de convolution**
@@ -164,6 +166,15 @@ image_processing/
   5 & 5 & 5
   \end{bmatrix}
   ```
+
+- **Utilisation**
+```rust
+// main.rs
+let img = image_utils::get_image("images_src/Bureau.png"); // Ouverture de l'image
+
+let img_kirsch = edge_detection::kirsch(img.clone()); // Application du filtre de Kirsch
+img_kirsch.save("images_res/bureau_kirsch.png").expect("Failed to save image"); // Enregistrement de l'image résultante
+```
 
 #### **d) Filtre de Robinson**
 - **Masques de convolution** :
@@ -227,6 +238,15 @@ image_processing/
   \end{bmatrix}
   ```
 
+- **Utilisation**
+```rust
+// main.rs
+let img = image_utils::get_image("images_src/Bureau.png"); // Ouverture de l'image
+
+let img_robinson = edge_detection::robinson(img.clone()); // Application du filtre de Robinson
+img_robinson.save("images_res/bureau_robinson.png").expect("Failed to save image"); // Enregistrement de l'image résultante
+```
+
 ### **2. Transformations morphologiques**
 
 - **Principe** :
@@ -244,6 +264,21 @@ image_processing/
        - Si **tous** les pixels objets du gabarit correspondent aux pixels objets du pixel courant et de son voisinage alors, le pixel central reste un pixel objet. Sinon, il devient un pixel fond.
     3. Parcourez toute l'image.
 
+- **Utilisation** :
+```rust
+// main.rs
+img_threshold.save("images_res/bureau_thresholding.png").expect("Failed to save image"); // Enregistrement de l'image résultante
+
+let gabarit = [ // création du gabarit pour la dilatation et l'érosion
+[image_utils::WHITEPIXEL, image_utils::BLACKPIXEL, image_utils::WHITEPIXEL],
+[image_utils::BLACKPIXEL, image_utils::BLACKPIXEL, image_utils::BLACKPIXEL],
+[image_utils::WHITEPIXEL, image_utils::BLACKPIXEL, image_utils::WHITEPIXEL],
+];
+
+let img_erodee = morphological::erosion(&gabarit, img_threshold); // Application de l'érosion
+img_erodee.save("images_res/bureau_erodee.png").expect("Failed to save image"); // Enregistrement de l'image résultante
+```
+
 #### **b) Dilatation**
 - **Principe** : Agrandit les objets en remplacant des pixels objets par des pixels fond au bord des objets.
 - **Algorithme** :
@@ -252,10 +287,25 @@ image_processing/
      -  On centre le gabarit et on applique la dilatation que si le pixel courant est un pixel fond.
      - Si **au moins** un pixel objet du gabarit correspond à un pixel objet du pixel courant et de son voisinage alors, le pixel central devient un pixel objet. Sinon, il reste un pixel fond.
   3. Parcourez toute l'image.
-  
+
+- **Utilisation** :
+```rust
+// main.rs
+img_threshold.save("images_res/bureau_thresholding.png").expect("Failed to save image"); // Enregistrement de l'image résultante
+
+let gabarit = [ // création du gabarit pour la dilatation et l'érosion
+[image_utils::WHITEPIXEL, image_utils::BLACKPIXEL, image_utils::WHITEPIXEL],
+[image_utils::BLACKPIXEL, image_utils::BLACKPIXEL, image_utils::BLACKPIXEL],
+[image_utils::WHITEPIXEL, image_utils::BLACKPIXEL, image_utils::WHITEPIXEL],
+];
+
+let img_dilatee = morphological::dilatation(&gabarit, img_threshold.clone()); // Application de la dilatation
+img_dilatee.save("images_res/bureau_dilatee.png").expect("Failed to save image"); // Enregistrement de l'image résultante
+```
+
 #### **c) Gabarit (élément structurant)**
 Le choix du gabarit est crucial :
-- **Carré \(3 \times 3\)** : Gabarit classique.
+- **Carré $3 \times 3$** : Gabarit classique.
   ```math
   E =
   \begin{bmatrix}
@@ -264,7 +314,7 @@ Le choix du gabarit est crucial :
   1 & 1 & 1
   \end{bmatrix}
   ```
-- **Croix \(3 \times 3\)** : Évite les coins.
+- **Croix $3 \times 3$** : Évite les coins.
   ```math
   E =
   \begin{bmatrix}

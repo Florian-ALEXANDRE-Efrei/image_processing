@@ -91,8 +91,9 @@ image_processing/
 
 ### **1. Filtres de détection de contours**
 
-> ## Précisions requises
-> Ces filtres utilisent des **masques de convolution**, qui sont appliqués sur chaque pixel d'une image pour détecter les variations d'intensité dans une direction particulière. Cela permet de détecter les contours. A chaque masque de convolution est appliqué un **facteur de normalisation** Ce facteur est calculé pour correspond à la somme des coefficients positifs ou négatifs du masque.
+- **Principe** :
+  - Ce programme implémente une méthode pour appliquer des masques de convolution, tels que Prewitt, Sobel, et autres, afin de détecter les contours dans une image. Le processus repose sur l'application d'une matrice $3 \times 3$ (le masque de convolution) à chaque pixel de l'image pour calculer une nouvelle valeur d'intensité.
+  - La valeur obtenue est mise en valeur absolue pour éviter des intensités négatives, puis normalisée à l'aide d'un facteur de normalisation calculé à l'avance. Ce facteur est basé sur la somme des coefficients positifs (ou négatifs) du masque de convolution. Cela garantit que les valeurs finales restent dans une plage cohérente, facilitant l'affichage et l'analyse.
 
 #### **a) Filtre de Prewitt**
 - **Masques de convolution** :
@@ -228,26 +229,16 @@ image_processing/
 
 ### **2. Transformations morphologiques**
 
-Les transformations morphologiques comme la **dilatation** et l’**érosion** sont utilisées pour modifier la structure des objets dans une image binaire. Dans le contexte du projet, les pixels noires correspondent à des pixels objets et les pixels blancs à des pixels fond.
-
-Pour la dailatation ou l'érosion, le principe est le même, nous utilisont un élément structurant/gabarit qui va permettre d'effectuer des opérations sur le pixel courant en fonction de ses pixels voisins. 
-
-L'élément structurant/gabarit est une petite matrice (ou motif) utilisée pour définir la forme et la taille des opérations de dilatation et d'érosion. Dans le cas de mon projet, nous ne pouvons utiliser que des matrices 3x3 mais leur remplissage est modulaire.
+- **Principe** :
+  - Les transformations morphologiques, comme la dilatation et l’érosion, sont utilisées pour modifier la structure des objets dans une image binaire. Dans ce projet, les pixels noirs représentent les pixels "objets" et les pixels blancs les pixels "fond".
+  - Ces opérations s'appuient sur un élément structurant, une petite matrice (ou motif) qui définit la forme et la taille de l'opération. Cette matrice est appliquée à chaque pixel pour effectuer l'opération en tenant compte de ses voisins.
+    - Dilatation : Cette opération agrandit les objets noirs en ajoutant des pixels objets autour d'eux.
+    - Érosion : Cette opération réduit les objets noirs en éliminant les pixels objets en bordure.
+  - Dans ce projet, seuls des éléments structurants $3 \times 3$ sont utilisés, mais leur contenu est modulaire, permettant de personnaliser la forme et le comportement des transformations.
 
 #### **a) Érosion**
-- **Principe** : Réduit les objets en supprimant les pixels objets du bord des objets.
 - **Algorithme** :
     1. Choisissez un élément structurant/gabarit (matrice $3 \times 3$).
-    
-       Exemple (pixel fond = $0$, pixel objet = $1$):
-       $
-       E =
-       \begin{bmatrix}
-       0 & 1 & 0 \\
-       1 & 1 & 1 \\
-       0 & 1 & 0
-       \end{bmatrix}
-       $
     2. Pour chaque pixel de l'image :
        - On centre le gabarit et on applique l'érosion que si le pixel courant est un pixel objet.
        - Si **tous** les pixels objets du gabarit correspondent aux pixels objets du pixel courant et de son voisinage alors, le pixel central reste un pixel objet. Sinon, il devient un pixel fond.
@@ -257,16 +248,6 @@ L'élément structurant/gabarit est une petite matrice (ou motif) utilisée pour
 - **Principe** : Agrandit les objets en remplacant des pixels objets par des pixels fond au bord des objets.
 - **Algorithme** :
   1. Choisissez un élément structurant/gabarit (matrice $3 \times 3$).
-
-     Exemple (pixel fond = $0$, pixel objet = $1$):
-     $
-     E =
-     \begin{bmatrix}
-     0 & 1 & 0 \\
-     1 & 1 & 1 \\
-     0 & 1 & 0
-     \end{bmatrix}
-     $
   2. Pour chaque pixel de l'image :
      -  On centre le gabarit et on applique la dilatation que si le pixel courant est un pixel fond.
      - Si **au moins** un pixel objet du gabarit correspond à un pixel objet du pixel courant et de son voisinage alors, le pixel central devient un pixel objet. Sinon, il reste un pixel fond.
@@ -306,10 +287,6 @@ Ce projet est sous licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plu
 
 ### Notes supplémentaires
 
-Ce projet est basé sur les cours de Mr.Patrick J Bonnin.
-
+- Ce projet est basé sur les cours de Mr.Patrick J Bonnin, enseignat à l'Efrei Paris pour les cours de "Vision robotique et analyse" et "Vision et Perception de l'Environnement"
 - Si vous avez des questions ou des problèmes, n'hésitez pas à ouvrir une issue ou à me contacter directement.
 - Ce projet est conçu pour les personnes souhaitant explorer le traitement d'images en Rust et peut servir de base à des projets plus complexes.
-
-### Exemple final
-- Ajoutez votre propre description ou personnalisez selon votre style ! 😊

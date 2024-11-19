@@ -4,14 +4,14 @@
 
 Un projet Rust pour appliquer plusieurs types de filtres d'image, notamment des filtres de détection de contours et des transformations morphologiques.
 
----
+
 ## **Caractéristiques**
 
 - **Détection de contours** : Kirsch, Sobel, Robinson, Prewitt.
 - **Opérateurs morphologiques** : Dilatation et érosion.
 - **Outils généraux** : Inversion des couleurs, seuillage classique, etc.
 
----
+
 ## **Structure du projet**
 
 ```bash
@@ -29,7 +29,7 @@ image_processing/
 └── Cargo.toml           # Configuration du projet
 ```
 
----
+
 ## **Installation**
 
 ### Prérequis
@@ -51,7 +51,7 @@ image_processing/
    cargo build --release
    ```
 
----
+
 ## **Utilisation**
 
 1. Ajoutez vos images sources dans le dossier `images_sources/`.
@@ -77,16 +77,16 @@ image_processing/
    }
    ```
 
----
+
 ## **Exemples de filtres appliqués**
 
 | Filtre           | Image Originale            | Image Résultante          |
-|------------------|----------------------------|----------------------------|
+||-|-|
 | **Prewitt**      | ![Input](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_src/Bureau.png) | ![Output](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_prewitt.png) |
 | **Thresholding** | ![Input](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_prewitt.png) | ![Output](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_thresholding.png) | 
 | **Dilatation**   | ![Input](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_thresholding.png) | ![Output](https://raw.githubusercontent.com/Florian-ALEXANDRE-Efrei/image_processing/refs/heads/dev/images_res/bureau_dilatee.png) |
 
----
+
 ## **Détails techniques des filtres et transformations**
 
 ### **1. Filtres de détection de contours**
@@ -293,7 +293,6 @@ Le choix du gabarit est crucial :
   \end{bmatrix}
   ```
   
----
 ## **Contribuer**
 
 Les contributions sont les bienvenues ! Voici comment vous pouvez aider :
@@ -301,12 +300,10 @@ Les contributions sont les bienvenues ! Voici comment vous pouvez aider :
 2. **Améliorez le code** : Clonez ce dépôt, faites vos modifications, et soumettez une pull request.
 3. **Ajoutez des fonctionnalités** : Par exemple, d'autres filtres ou améliorations de performance.
 
----
 ## **Licence**
 
 Ce projet est sous licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus d'informations.
 
----
 ### Notes supplémentaires
 
 Ce projet est basé sur les cours de Mr.Patrick J Bonnin.
@@ -314,6 +311,5 @@ Ce projet est basé sur les cours de Mr.Patrick J Bonnin.
 - Si vous avez des questions ou des problèmes, n'hésitez pas à ouvrir une issue ou à me contacter directement.
 - Ce projet est conçu pour les personnes souhaitant explorer le traitement d'images en Rust et peut servir de base à des projets plus complexes.
 
----
 ### Exemple final
 - Ajoutez votre propre description ou personnalisez selon votre style ! 😊

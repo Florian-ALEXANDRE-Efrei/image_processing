@@ -315,24 +315,14 @@ Le choix du gabarit est crucial :
   \end{bmatrix}
 ```
 - **Croix $3 \times 3$** : Évite les coins.
-
-  ```math
+```math
   E =
   \begin{bmatrix}
   0 & 1 & 0 \\
   1 & 1 & 1 \\
   0 & 1 & 0
   \end{bmatrix}
-  ```
-
- ```math
-  E =
-  \begin{bmatrix}
-  0 & 1 & 0 \\
-  1 & 1 & 1 \\
-  0 & 1 & 0
-  \end{bmatrix}
-  ```
+```
   
 ## **Contribuer**
 

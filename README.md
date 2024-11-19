@@ -152,8 +152,9 @@ image_processing/
   -3 & 5 &  5 \\
   -3 &  0 & 5 \\
   -3 & -3 & -3
-  \end{bmatrix},
-  \quad 
+  \end{bmatrix}
+  ```
+  ``` math
   G_{-45°} = 1/15
   \begin{bmatrix}
   -3 &  -3 &  -3 \\
@@ -191,16 +192,16 @@ image_processing/
   1 &  1 &  1 \\
   1 &  -2 & 1 \\
   -1 & -1 & -1
-  \end{bmatrix},
-  \quad
+  \end{bmatrix}
+  ```
+  ```math
   G_{NO} = 1/5
   \begin{bmatrix}
   1 &  1 &  1 \\
   1 &  -2 & -1 \\
   1 & -1 & -1
-  \end{bmatrix}
-  ```
-  ```math
+  \end{bmatrix},
+  \quad
   G_{O} = 1/5
   \begin{bmatrix}
   1 &  1 & -1 \\
@@ -213,8 +214,9 @@ image_processing/
   1 & -1 &  -1 \\
   1&  -2 & -1 \\
   1& 1 & 1
-  \end{bmatrix},
-  \quad
+  \end{bmatrix}
+  ```
+  ``` math
   G_{S} = 1/5
   \begin{bmatrix}
   -1 &  -1 &  -1 \\

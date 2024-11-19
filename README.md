@@ -102,7 +102,7 @@ image_processing/
 
 #### **a) Filtre de Prewitt**
 - **Masques de convolution** :
-  $$
+  ```math
   G_x = 1/3
   \begin{bmatrix}
   -1 & 0 & 1 \\
@@ -116,7 +116,7 @@ image_processing/
   0 &  0 &  0 \\
   1 &  1 &  1
   \end{bmatrix}
-  $$
+  ```
 
 #### **b) Filtre de Sobel**
 - **Masques de convolution** :

@@ -24,7 +24,6 @@ fn apply_mask_set(masks: &Vec<[[i8; 3]; 3]>, pixel_matrix: [[u8; 3]; 3], normali
         .map(|mask| gradient(*mask, pixel_matrix, normalisation))
         .max()
         .unwrap_or(0)
-    
 }   
 
 // Fonction principale pour les filtres de Kirsch

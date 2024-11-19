@@ -306,14 +306,14 @@ img_dilatee.save("images_res/bureau_dilatee.png").expect("Failed to save image")
 #### **c) Gabarit (élément structurant)**
 Le choix du gabarit est crucial :
 - **Carré $3 \times 3$** : Gabarit classique.
-  ```math
+```math
   E =
   \begin{bmatrix}
   1 & 1 & 1 \\
   1 & 1 & 1 \\
   1 & 1 & 1
   \end{bmatrix}
-  ```
+```
 - **Croix $3 \times 3$** : Évite les coins.
 
   ```math

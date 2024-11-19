@@ -315,6 +315,7 @@ Le choix du gabarit est crucial :
   \end{bmatrix}
   ```
 - **Croix $3 \times 3$** : Évite les coins.
+
   ```math
   E =
   \begin{bmatrix}

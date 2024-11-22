@@ -40,7 +40,7 @@ image_processing/
 
 ## Étapes pour utiliser la librairie avec crate.io
 
-Ce projet est publié sur [Crates.io](https://crates.io/) et peut être utilisé comme dépendance dans vos projets Rust. Suivez les étapes ci-dessous pour l’intégrer et l'utiliser.
+Ce projet est publié sur [Crates.io](https://crates.io/crates/image_processing) et peut être utilisé comme dépendance dans vos projets Rust. Suivez les étapes ci-dessous pour l’intégrer et l'utiliser.
 
 #### 1. Créer un nouveau projet Rust
 
